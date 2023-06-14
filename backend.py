@@ -13,5 +13,6 @@ if response.status_code == 200:
     data = response.json()
     print(data['current']['condition']['text'])
     print(data['location']['lon'])
+    print(data['location']['lat'])
 else:
     print('Error fetching weather data')
