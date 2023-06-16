@@ -1,13 +1,19 @@
 import requests
 import json
+import datetime
 
 api_key = '0aa1f501bd154cc19b604300231406'
 
 city = input('Enter city name: ')
+date = datetime.datetime.now().strftime("%Y-%m-%d")
 
-url = f'https://api.weatherapi.com/v1/current.json?key={api_key}&q={city}&aqi=yes'
+print(date)
 
-response = requests.get(url)
+current_url = f'https://api.weatherapi.com/v1/current.json?key={api_key}&q={city}&aqi=yes'
+forecast_url = f'http://api.weatherapi.com/v1/forecast.json?key=0aa1f501bd154cc19b604300231406&q={city}&days=3&aqi=yes&alerts=yes'
+astronomy_url = f'http://api.weatherapi.com/v1/astronomy.json?key={api_key}&q={city}&dt={date}'
+
+response = requests.get(current_url)
 
 
 
